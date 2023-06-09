@@ -4,7 +4,7 @@
     @mouseover="hoverState = true"
     @mouseleave="hoverState = false"
   >
-    <div class="icons">
+    <div class="icons" v-if="post.userID==this.$store.state.profileID">
       <div class="icon">
         <i class="fa-solid fa-pen-to-square" @click="editRecipe"></i>
       </div>
