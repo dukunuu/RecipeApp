@@ -8,7 +8,7 @@
       <h4>{{ post.title }}</h4>
       <div class="general">
         <h6>Posted on: {{ dateTime }}</h6>
-        <h6>Created By <br> {{ userName }}</h6>
+        <h6>Created By <br> {{ post.userName }}</h6>
       </div>
       <div class="more-info">
         <div class="serving">
@@ -54,7 +54,7 @@
         <p>Steps</p>
         <ul>
           <li v-for="(step, index) in post.steps" :key="index">
-            Step {{ index + 1 }}: {{ step.text }}
+            <b>Step {{ index + 1 }}:</b> {{ step.text }}
           </li>
         </ul>
       </div>
@@ -245,6 +245,10 @@ export default {
     }
     ul {
       list-style-type: none;
+      li{
+        margin-bottom:10px;
+        filter:brightness(0.8)
+      }
     }
     .left {
       gap: 20px;

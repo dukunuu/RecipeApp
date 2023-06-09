@@ -1,5 +1,5 @@
 <template>
-  <SearchFocus @keyup="focusSearch"/>
+  <SearchFocus @keyup="focusSearch" />
   <div class="Home">
     <div class="image">
       <div class="text-container">
@@ -25,9 +25,7 @@
             v-model="value"
             ref="search"
           />
-          <router-link class="link" to="#"
-            ><i class="fa-solid fa-magnifying-glass" @click="searchFunction"></i
-          ></router-link>
+          ><i class="fa-solid fa-magnifying-glass" @click="searchFunction"></i>
         </div>
       </div>
     </div>
@@ -35,10 +33,10 @@
 </template>
 
 <script>
-import SearchFocus from '../components/SearchFocus.vue';
+import SearchFocus from "../components/SearchFocus.vue";
 export default {
   name: "Home",
-  components: {SearchFocus},
+  components: { SearchFocus },
   data() {
     return {
       windowWidth: null,
@@ -49,26 +47,26 @@ export default {
     checkScreen() {
       this.windowWidth = window.innerWidth;
     },
-    focusSearch(e){
-      if(e.key==='/'){
+    focusSearch(e) {
+      if (e.key === "/") {
         this.$refs.search.focus();
       }
-      if(this.value!==""&&e.key==='Enter'){
+      if (this.value !== "" && e.key === "") {
         this.searchFunction();
       }
     },
-    searchFunction(){
+    searchFunction() {
       this.$store.commit("updateSearch", this.value);
       this.$router.push("/search");
-    }
+    },
   },
   computed: {
     user() {
       return this.$store.state.user;
     },
-    username(){
-      return this.$store.state.profileUserName
-    }
+    username() {
+      return this.$store.state.profileUserName;
+    },
   },
   created() {},
 };

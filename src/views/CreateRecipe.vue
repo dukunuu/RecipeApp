@@ -287,6 +287,7 @@ export default {
             youTubeURL: this.youTubeURL,
             imageURL: this.downloadURL,
             userID: this.$store.state.profileID,
+            userName:this.$store.state.profileUserName,
             servings: this.servings,
             timeToPrepare: this.time,
             date: new Date(),
