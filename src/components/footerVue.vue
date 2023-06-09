@@ -50,6 +50,7 @@ footer {
   @media (min-width: 900) {
     text-align: justify;
   }
+  z-index:80;
 }
 .container {
   display: flex;
@@ -59,7 +60,6 @@ footer {
     flex-direction: row;
     gap: 0px;
   }
-
   > div {
     display: flex;
     flex: 1;

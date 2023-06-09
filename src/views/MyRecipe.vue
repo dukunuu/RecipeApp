@@ -15,11 +15,10 @@
       <div class="noResults">
         <span v-if="query.length > 0">No results for '{{ query }}'</span>
       </div>
-
       <div class="recipe-cards">
         <RecipeCard
-          :post="post"
-          v-for="(post, index) in recipes"
+          :post="post.item"
+          v-for="(post, index) in retrieveQuery"
           :key="index"
         />
       </div>
@@ -39,37 +38,7 @@ export default {
     return {
       query: "",
       noResults: false,
-      sampleCards: [
-        {
-          title: "Pepperoni Pizza",
-          photo: "stock-1",
-          date: "June 5, 2023",
-          servings: 5,
-          preparation: "1h 30min",
-        },
-        {
-          title: "Hawaiian Pizza",
-          photo: "stock-2",
-          date: "June 4, 2023",
-          servings: 5,
-          preparation: "1h 30min",
-        },
-        {
-          title: "Fried Chicken",
-          photo: "stock-3",
-          date: "June 5, 2023",
-          servings: 3,
-          preparation: "1h 30min",
-        },
-        {
-          title: "CheeseBurger",
-          photo: "stock-4",
-          date: "June 6, 2023",
-          servings: 1,
-          preparation: "1h 30min",
-        },
-      ],
-      recipes: [],
+      searchquery: "",
     };
   },
   methods: {
@@ -78,25 +47,24 @@ export default {
         this.$refs.search.focus();
       }
     },
+    newarr() {
+      this.searchquery = this.query;
+      retrieveQuery(this.searchquery);
+    },
   },
-
   computed: {
-    async retrieveQuery() {
-      const fuse = new Fuse(this.sampleCards, {
-        keys: ["title"],
+    recipes() {
+      return this.$store.state.recipes;
+    },
+    retrieveQuery() {
+      const fuse = new Fuse(this.recipes, {
+        keys: ["title", "ingredients.name"],
       });
       const searchResults = fuse.search(this.query);
       return searchResults;
     },
-    recipes() {
-      return this.$store.state.recipes;
-    },
   },
-  watch: {
-    query(newquery) {
-      console.log(this.$store.state.recipes);
-    },
-  },
+  watch: {},
 };
 </script>
 
@@ -113,7 +81,6 @@ span {
 }
 .recipe-card-wrapper {
   background-image: url("../assets/Images/Reset.png");
-  height: 100%;
   h1 {
     margin: auto;
     color: #fff;
@@ -125,6 +92,7 @@ span {
   .search-container {
     position: relative;
     width: 100%;
+    height:90%;
     padding: 0;
     margin-bottom: 30px;
     input {

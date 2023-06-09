@@ -72,8 +72,8 @@
             height="300px"
           ></iframe>
           <button class="preview" @click.prevent="youtubePlay">
-            <h3 v-if="!convertVideo">Preview Video</h3>
-            <h3 v-else>Click Again</h3>
+            <h3 v-if="!convertVideo">Click To Embed</h3>
+            <h3 v-else>Preview</h3>
           </button>
         </div>
         <div class="steps">

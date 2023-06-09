@@ -180,6 +180,7 @@ export default {
   border: 1px solid #f4d157;
   background-color: #1e1e1e;
   color: #f4d157;
+  
   transition: 0.5s ease all;
   &:hover {
     transform: scale(1.01);
