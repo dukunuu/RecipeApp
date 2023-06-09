@@ -53,6 +53,9 @@ export default {
       if(e.key==='/'){
         this.$refs.search.focus();
       }
+      if(this.value!==""&&e.key===' '){
+        this.searchFunction();
+      }
     },
     searchFunction(){
       this.$store.commit("updateSearch", this.value);
