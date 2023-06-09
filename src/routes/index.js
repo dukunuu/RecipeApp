@@ -17,6 +17,11 @@ const routes = [
     component: () => import("@/views/EditRecipe.vue"),
   },
   {
+    path: "/search",
+    name: "Search",
+    component: () => import("@/views/Recipes.vue"),
+  },
+  {
     path:"/resetPassword",
     name:"ResetPassword",
     component:()=>import("../views/ResetPassword.vue")

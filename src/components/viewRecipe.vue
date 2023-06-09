@@ -8,7 +8,7 @@
       <h4>{{ post.title }}</h4>
       <div class="general">
         <h6>Posted on: {{ dateTime }}</h6>
-        <h6>Created By {{ this.$store.state.profileUserName }}</h6>
+        <h6>Created By <br> {{ userName }}</h6>
       </div>
       <div class="more-info">
         <div class="serving">

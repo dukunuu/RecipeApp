@@ -1,4 +1,5 @@
 <template>
+  <SearchFocus @keyup="focusSearch"/>
   <div class="Home">
     <div class="image">
       <div class="text-container">
@@ -22,9 +23,10 @@
             type="text"
             placeholder="What would you like to cook?"
             v-model="value"
+            ref="search"
           />
           <router-link class="link" to="#"
-            ><i class="fa-solid fa-magnifying-glass"></i
+            ><i class="fa-solid fa-magnifying-glass" @click="searchFunction"></i
           ></router-link>
         </div>
       </div>
@@ -33,9 +35,10 @@
 </template>
 
 <script>
+import SearchFocus from '../components/SearchFocus.vue';
 export default {
   name: "Home",
-  components: {},
+  components: {SearchFocus},
   data() {
     return {
       windowWidth: null,
@@ -46,6 +49,15 @@ export default {
     checkScreen() {
       this.windowWidth = window.innerWidth;
     },
+    focusSearch(e){
+      if(e.key==='/'){
+        this.$refs.search.focus();
+      }
+    },
+    searchFunction(){
+      this.$store.commit("updateSearch", this.value);
+      this.$router.push("/search");
+    }
   },
   computed: {
     user() {

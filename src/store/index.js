@@ -6,6 +6,7 @@ import { getDoc, getDocs, query, where, collection, updateDoc, deleteDoc  } from
 const store = createStore({
   state: {
     passthroughEmail: "",
+    passthroughSearch: "",
 
     user: null,
     profileEmail: null,
@@ -18,7 +19,6 @@ const store = createStore({
 
     recipes:[],
     recipeUsername:null,
-
     recipe: null,
     recipeID: null,
     recipeTitle: null,
@@ -30,10 +30,14 @@ const store = createStore({
     recipePreparationTime: null,
     recipeYoutubeLink: null,
     recipeOwnerID: null,
+    recipeDate: null,
   },
   mutations: {
     updatePassthroughEmail(state, email) {
       state.passthroughEmail = email;
+    },
+    updateSearch(state, search) {
+      state.passthroughSearch=search;
     },
     setProfileInfo(state, profileInfo) {
       const currentUser = auth.currentUser;
@@ -51,7 +55,7 @@ const store = createStore({
     },
     setRecipeInfo(state, recipeInfo) {
       state.recipeTitle = recipeInfo.title;
-      state.recipePhoto = recipeInfo.photo;
+      state.recipePhotoURL = recipeInfo.photo;
       state.recipeIngredients = recipeInfo.ingredients;
       state.recipePreparation = recipeInfo.preparation;
       state.recipeServings = recipeInfo.servings;
@@ -137,8 +141,8 @@ const store = createStore({
         console.error("Error updating document:", error);
       }
     },
-    async getUserName(userID, {commit}){
-      const users=collection(db,"users",userID);
+    async getUserName({commit},userID){
+      const users=doc(db,"users",userID);
       try {
         const userSnapshot = await getDoc(users);
         const userData = userSnapshot.data();
@@ -149,7 +153,7 @@ const store = createStore({
         return null;
       }
     },
-    deleteDocument({ commit, dispatch }, documentId) {
+    deleteDocument({ dispatch }, documentId) {
       const collectionRef = doc(db, 'recipes', documentId);
   
       deleteDoc(collectionRef)

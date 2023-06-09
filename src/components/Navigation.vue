@@ -279,7 +279,8 @@ export default {
     },
     toggleSearch() {
       if (this.value !== "") {
-        this.$router.push("/myrecipes");
+        this.$store.commit("updateSearch", this.value);
+        this.$router.push("/search");
         this.value = "";
         this.toggler = false;
         this.search = false;
