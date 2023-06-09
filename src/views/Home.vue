@@ -51,7 +51,7 @@ export default {
       if (e.key === "/") {
         this.$refs.search.focus();
       }
-      if (this.value !== "" && e.key === "") {
+      if (this.value !== "" && e.key === "Enter") {
         this.searchFunction();
       }
     },
