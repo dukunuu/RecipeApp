@@ -252,10 +252,13 @@ export default {
     }
     .link {
       display: inline-flex;
+      position:absolute;
+      bottom:20px;
       align-items: center;
       margin-top: 20px;
       font-weight: 500px;
       font-size: 12px;
+      width:100%;
       color: #757575;
       gap: 5px;
       transition: 0.5s ease-in all;
@@ -268,7 +271,7 @@ export default {
       animation: arrow-expand 600ms forwards;
       @keyframes arrow-expand {
         to {
-          gap: 72%;
+          gap: 60%;
         }
       }
     }
@@ -276,7 +279,7 @@ export default {
       animation: arrow-close 1000ms forwards;
       @keyframes arrow-close{
         from {
-          gap: 72%;
+          gap: 60%;
         }
         to{
           gap:5px;

@@ -13,14 +13,21 @@
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
       <div class="noResults">
-        <span v-if="query.length > 0">No results for '{{ query }}'</span>
+        <span v-if="retrieveQuery.length == 0 && query.length>0">No results for '{{ query }}'</span>
       </div>
       <div class="recipe-cards">
-        <RecipeCard
+        <RecipeCard v-if="query.length>0"
           :post="post.item"
           v-for="(post, index) in retrieveQuery"
           :key="index"
         />
+        <RecipeCard v-else
+          :post="post"
+          v-for="(post, i) in recipes"
+          :key="i"
+        />
+
+        <div class="empty"></div>
       </div>
     </div>
   </div>
@@ -69,6 +76,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.empty{
+  height:230px;
+}
 .noResults {
   margin-bottom: 30px;
 }
