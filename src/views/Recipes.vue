@@ -67,7 +67,7 @@ export default {
       retrieveQuery(this.searchquery);
     },
     async getRecipes(){
-      const recipesQuery = collection(db, "recipes")
+      const recipesQuery = collection(db, "recipes");
         const recipesSnapshot =  (await getDocs(recipesQuery));
         const recipes = recipesSnapshot.docs.map((doc) => ({
           id: doc.id,
