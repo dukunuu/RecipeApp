@@ -8,7 +8,6 @@
         <ul v-show="!mobile">
           <router-link class="link" to="/">Home</router-link>
           <router-link class="link" to="/search">Recipes</router-link>
-
           <router-link class="link" v-if="user" to="/createRecipe"
             >Create Recipe</router-link
           >

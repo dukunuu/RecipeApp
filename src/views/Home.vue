@@ -247,7 +247,7 @@ span {
     position: relative;
     margin: auto;
     justify-content: center;
-    width: 100%;
+    width: 40%;
     padding: 0;
     input {
       height: 35px;
@@ -265,19 +265,16 @@ span {
         font-size: 16px;
       }
     }
-    .link {
-      position: relative;
       .fa-magnifying-glass {
         cursor: pointer;
         position: absolute;
         font-size: 20px;
-        top: 0px;
-        right: 16px;
+        top: 20px;
+        right: 25px;
         transition: 300ms ease;
         &:hover {
           font-size: 22px;
         }
-      }
     }
   }
 }
