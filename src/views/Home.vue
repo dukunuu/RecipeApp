@@ -25,7 +25,7 @@
             v-model="value"
             ref="search"
           />
-          ><i class="fa-solid fa-magnifying-glass" @click="searchFunction"></i>
+          <i class="fa-solid fa-magnifying-glass" @click="searchFunction"></i>
         </div>
       </div>
     </div>
@@ -248,6 +248,7 @@ span {
     margin: auto;
     justify-content: center;
     width: 40%;
+    min-width:200px;
     padding: 0;
     input {
       height: 35px;

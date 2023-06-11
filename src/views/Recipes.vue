@@ -51,6 +51,7 @@ export default {
       searchquery: "",
       loading:false,
       recipes:[],
+      loading:false,
     };
   },
   created(){
