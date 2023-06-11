@@ -246,6 +246,7 @@ span {
   .search-container {
     position: relative;
     margin: auto;
+    justify-content: center;
     width: 100%;
     padding: 0;
     input {

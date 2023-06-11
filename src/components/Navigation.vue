@@ -7,9 +7,12 @@
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" to="/">Home</router-link>
+          <router-link class="link" to="/search">Recipes</router-link>
+
           <router-link class="link" v-if="user" to="/createRecipe"
             >Create Recipe</router-link
           >
+
           <router-link class="link" to="#">About</router-link>
           <div class="search-container">
             <input
@@ -97,9 +100,12 @@
             >
           </div>
           <router-link class="link" to="/">Home</router-link>
+          <router-link class="link" to="/search">Recipes</router-link>
+
           <router-link class="link" v-if="user" to="/createRecipe"
             >Create Recipe</router-link
           >
+
           <router-link class="link" to="#">About</router-link>
           <div class="profile-menu-mobile" v-if="user">
             <div class="info">
@@ -771,16 +777,17 @@ nav {
     }
   }
 }
-.mobileNav-enter-active,.mobileNav-leave-active{
-  transition:all 1s ease;
+.mobileNav-enter-active,
+.mobileNav-leave-active {
+  transition: all 1s ease;
 }
-.mobileNav-enter-from{
-  transform:translateX(-250px);
+.mobileNav-enter-from {
+  transform: translateX(-250px);
 }
-.mobileNav-enter-to{
-  transform:translateX(0);
+.mobileNav-enter-to {
+  transform: translateX(0);
 }
-.mobileNav-leave-to{
+.mobileNav-leave-to {
   transform: translateX(-250px);
 }
 </style>
