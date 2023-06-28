@@ -1,21 +1,19 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { FieldValue } from "firebase/firestore";
 const firebaseConfig = {
-  apiKey: "AIzaSyAnbXagHX63aQ37r0eRuPfBFCBERUHHxsY",
-  authDomain: "recipeapp-b049b.firebaseapp.com",
-  projectId: "recipeapp-b049b",
-  storageBucket: "recipeapp-b049b.appspot.com",
-  messagingSenderId: "819422392044",
-  appId: "1:819422392044:web:5c531edc999b237015ffc9",
-  measurementId: "G-9X51W8MDM4"
+  apiKey: import.meta.env.PROD.FIREBASE_API_KEY,
+  authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId:import.meta.env.FIREBASE_APP_ID,
+  measurementId: import.meta.env.FIREBASE_MEAUSERMENT_ID
 };
 
 initializeApp(firebaseConfig);
 
 const auth=getAuth();
 const db=getFirestore();
-const timestamp=FieldValue.serverTimestamp;
 
 export {auth, db}
